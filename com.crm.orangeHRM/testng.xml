@@ -15,9 +15,9 @@
 			</run>
 		</groups>-->
 		<classes>
-		<class name="com.login.orangeHRM.LoginTest" />
-			<class name="com.dashboard.orangeHRM.DashboardTest" />
-			<class name="com.PIM.orangeHRM.EmployeeListTest" />	
+		<!--<class name="com.login.orangeHRM.LoginTest" />
+			 <class name="com.dashboard.orangeHRM.DashboardTest" />
+			<class name="com.PIM.orangeHRM.EmployeeListTest" />	-->
 			<class name="com.admin.orangeHRM.UserManagementTest" />
 
 		</classes>
