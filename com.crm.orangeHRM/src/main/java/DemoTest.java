@@ -18,6 +18,7 @@ public class DemoTest {
 		utility.accessApplication(driver, "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		LogiNPage logiNPage=new LogiNPage(driver);
 		logiNPage.LoginToApplication("Admin", "admin123");
+		System.out.println("hello");
 	}
 
 }
