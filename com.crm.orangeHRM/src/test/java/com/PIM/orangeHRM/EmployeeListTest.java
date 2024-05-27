@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GenericUtility.BaseClass;
@@ -20,10 +21,10 @@ import repositry.EmployeeList;
 import repositry.LogiNPage;
 import repositry.PersonalDetailsPage;
 import repositry.Sidebar;
-
+@Listeners(GenericUtility.ListnerImplementation.class)
 public class EmployeeListTest extends BaseClass{
 	
-	@Test(priority = 1)
+	@Test(dataProvider ="Search Data", priority = 1)
 	
 	public void SearchByEmployeeName() throws InterruptedException {
 		String expemployeeName = "Amelia";
@@ -35,7 +36,7 @@ public class EmployeeListTest extends BaseClass{
 		EmployeeList empl= new EmployeeList(driver);
 		empl.EmployeeSearchByName("Amelia");
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(200));
+		WebDriverWait wait = new WebDriverWait(driver,10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='orangehrm-horizontal-padding orangehrm-vertical-padding']/span")));
 		String actFirstAndMiddlename = empl.FirstAndMiddlenameSection();
 		System.out.println(actFirstAndMiddlename);
@@ -57,7 +58,7 @@ public class EmployeeListTest extends BaseClass{
 	EmployeeList empl= new EmployeeList(driver);
 	empl.EmployeeSearchById("01715");
 	Thread.sleep(2000);
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(200));
+	WebDriverWait wait = new WebDriverWait(driver,10);
 	wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='orangehrm-horizontal-padding orangehrm-vertical-padding']/span")));
 	String actempid = empl.empId();
 	System.out.println(actempid);
@@ -85,7 +86,7 @@ public void SearchBySupervisorName() throws InterruptedException {
 	empl.ResetSearch();
 }
 @Test(priority = 4)
-public void SearchByEmployeeStatus()
+public void SearchByEmployeeStatus() throws InterruptedException
 {
 	String expNoRecordFound="No Records Found";
 	LogiNPage login=new LogiNPage(driver);

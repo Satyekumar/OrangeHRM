@@ -19,13 +19,23 @@ public class DashboardPage {
 	@FindBy(xpath="//span[@class='oxd-text oxd-text--span orangehrm-attendance-card-fulltime']")
 	private WebElement attendancecardfulltime;
 	
+	@FindBy(xpath="//p[@class='oxd-userdropdown-name']")
+	private WebElement LogoutDropdown;
+	
+	@FindBy(xpath="//a[text()='Logout']")
+	private WebElement LogoutLink;
+	
 	
 	public DashboardPage(WebDriver driver)
 	{
 		PageFactory.initElements(driver, this);
 	}
 	
-	
+	public void Logout(WebDriver driver)
+	{
+		LogoutDropdown.click();
+		LogoutLink.click();
+	}
 	
 	public WebElement getUsername() {
 		return username;

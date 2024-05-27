@@ -3,13 +3,19 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.PIM.orangeHRM.EmployeeListTest">
+      <class name="com.admin.orangeHRM.UserManagementTest">
         <methods>
           <include name="config_BC"/>
-          <include name="AddNewEmployee"/>
+          <include name="config_BS"/>
+          <include name="AddSystemUser"/>
+          <include name="config_AM"/>
           <include name="config_BM"/>
+          <include name="SearchAddedSystemUser"/>
+          <include name="delteAddedSystemUser"/>
+          <include name="config_AC"/>
+          <include name="config_AS"/>
         </methods>
-      </class> <!-- com.PIM.orangeHRM.EmployeeListTest -->
+      </class> <!-- com.admin.orangeHRM.UserManagementTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -3,6 +3,7 @@ package GenericUtility;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -34,12 +35,12 @@ public class WebdriverUtility  {
 	}
     public void implicitwait(WebDriver driver,int sec)
     {
-    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(sec));
+    	driver.manage().timeouts().implicitlyWait(sec,TimeUnit.SECONDS);
     }
     
     public void getExplicitWait(WebDriver driver,int sec,String xpath)
     {
-    	WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(sec));
+    	WebDriverWait wait=new WebDriverWait(driver,sec);
     	wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
     }
     
@@ -47,6 +48,11 @@ public class WebdriverUtility  {
     {
     	driver.get(url);
     }
+    public void LogOutFromApplication(WebDriver driver,String url)
+    {
+    	driver.get(url);
+    }
+    
     
     public void findElementWithValue(WebDriver driver,String nameAttribute,String value)
     {

@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="Analyzer.Transformer"/>
-    <listener class-name="Report.ExtentReport"/>
-  </listeners>
-  <test thread-count="5" name="Test(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.PIM.orangeHRM.EmployeeListTest">
+      <class name="com.admin.orangeHRM.UserManagementTest">
         <methods>
           <include name="config_BC"/>
-          <include name="SearchByEmployeeName"/>
-          <include name="AddNewEmployee"/>
-          <include name="SearchBySupervisorName"/>
+          <include name="config_BS"/>
+          <include name="AddSystemUser"/>
           <include name="config_AM"/>
-          <include name="SearchByEmployeeStatus"/>
           <include name="config_BM"/>
-          <include name="SearchByEmployeeId"/>
+          <include name="SearchAddedSystemUser"/>
+          <include name="delteAddedSystemUser"/>
           <include name="config_AC"/>
+          <include name="config_AS"/>
         </methods>
-      </class> <!-- com.PIM.orangeHRM.EmployeeListTest -->
+      </class> <!-- com.admin.orangeHRM.UserManagementTest -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -1,6 +1,7 @@
 package com.PIM.orangeHRM;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GenericUtility.BaseClass;
@@ -9,10 +10,10 @@ import repositry.DashboardPage;
 import repositry.EmployeeReports;
 import repositry.LogiNPage;
 import repositry.Sidebar;
-
+@Listeners(GenericUtility.ListnerImplementation.class)
 public class ReportTest extends BaseClass{
 	@Test
-	public void SearchReport()
+	public void SearchReport() throws InterruptedException
 	{
 		String expReportNameSearchResult = "Employee Job Details";
 		LogiNPage login=new LogiNPage(driver);
@@ -26,7 +27,7 @@ public class ReportTest extends BaseClass{
 		Assert.assertEquals(actReportNameSearchResult, expReportNameSearchResult);
 	}
 	@Test
-	public void CreatReport()
+	public void CreatReport() throws InterruptedException
 	{
 		String expReportNameSearchResult = "Employee Job Details";
 		LogiNPage login=new LogiNPage(driver);

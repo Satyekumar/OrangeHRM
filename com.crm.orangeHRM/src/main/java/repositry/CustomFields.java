@@ -69,7 +69,7 @@ public class CustomFields {
 		Addbtn.click();
 		FieldName.sendKeys(fn);
 		Screen.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Personal Details']"))).click();
 		Type.click();
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Text or Number']"))).click();
@@ -87,7 +87,7 @@ public class CustomFields {
 		CustomFields.click();
 		Addbtn.click();
 		Screen.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Personal Details']"))).click();
 		Type.click();
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Text or Number']"))).click();
@@ -105,7 +105,7 @@ public class CustomFields {
 		CustomFields.click();
 		Addbtn.click();
 		FieldName.sendKeys(fn);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+		WebDriverWait wait = new WebDriverWait(driver,10);
 		Type.click();
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Text or Number']"))).click();
 		saveBtn.click();
@@ -117,8 +117,8 @@ public class CustomFields {
 		Addbtn.click();
 		FieldName.sendKeys(fn);
 		Screen.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Personal Details']"))).click();
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Personal Details']"))).click();
 		
 		saveBtn.click();
 	}

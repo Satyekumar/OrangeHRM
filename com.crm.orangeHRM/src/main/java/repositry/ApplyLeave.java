@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ApplyLeave {
-	
+	WebDriver driver;
 	@FindBy(xpath="//a[text()='Apply']")
 	private WebElement ApplyLeaveTab;
 	
@@ -34,6 +34,16 @@ public class ApplyLeave {
 	public ApplyLeave(WebDriver driver) 
 	{
 		PageFactory.initElements(driver, this);
+	}
+	
+	public void ErrorValidationForApplyLeave()
+	{
+		
+	}
+	
+	public void ApplyLeave()
+	{
+		
 	}
 
 }

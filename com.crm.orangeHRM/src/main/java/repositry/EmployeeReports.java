@@ -48,7 +48,7 @@ public class EmployeeReports {
 	{
 		ReportTab.click();
 		AddReport.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+		WebDriverWait wait = new WebDriverWait(driver,10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='oxd-autocomplete-option']/span"))).click();
 		SearchBtn.click();
 		}

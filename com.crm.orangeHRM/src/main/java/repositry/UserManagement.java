@@ -1,11 +1,20 @@
 package repositry;
 
+import java.util.HashMap;
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import GenericUtility.JavaUtils;
 
 public class UserManagement {
+	WebDriver driver;
 	
 	@FindBy(xpath="//li[@class='oxd-topbar-body-nav-tab --parent --visited']/span")
 	private WebElement Usermanagment;
@@ -37,20 +46,78 @@ public class UserManagement {
 	@FindBy(xpath="//button[@class='oxd-button oxd-button--medium oxd-button--secondary']")
 	private WebElement addbtn;
 	
+	@FindBy(xpath = "//div[@role='cell']/div")
+	private List<WebElement> HeadersValues;
+	
+	
+	@FindBy(xpath = "//div[@role='columnheader']")
+	private List<WebElement> Headers;
+	
 	public UserManagement(WebDriver driver)
 	{
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void serchUsername(String uinput)
+	public HashMap<String, String> serchUsername(WebDriver driver,String uinput) throws InterruptedException
 	{
-		usernameinputtxtbox.sendKeys(uinput);
+		HashMap<String,String> map=new HashMap<String,String>();
+		JavaUtils ju=new JavaUtils();
+		int userrandomNumber = ju.randomNumber();
+		AddUserPage au=new AddUserPage(driver);
+		String SearchUser = au.userUniqueName;
+		usernameinputtxtbox.sendKeys(uinput+userrandomNumber);
+		searchbtn.click();
 		
+		Thread.sleep(300);
+		if(getRecordFoundtxt().contains("Record Found"))
+		{
+		
+		for(int i=1;i<Headers.size();i++)
+		{
+			String headerName = Headers.get(i).getText();
+			for(int j=1;j<HeadersValues.size();j++)
+			{
+				if(i==j)
+				{
+					String headersvalues = HeadersValues.get(j).getText();	
+					map.put(headerName,headersvalues );
+				}
+			}
+		} 
+		}
+		else
+		{
+			System.out.println("No Searched User Found");
+		}
+		System.out.println(map);
+		return map;	
 	}
 	
-	public void UserRole() 
+	public HashMap<String, String> UserRole(WebDriver driver) 
 	{
 		UserRole.click();
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("UserRoleoption1"))).click();
+		List<WebElement>Headers=driver.findElements(By.xpath("//div[@role='columnheader']"));
+		List<WebElement>HeadersValues=driver.findElements(By.xpath("//div[@role='cell']/div"));
+		HashMap<String,String> map=new HashMap<String,String>();
+		
+		for(int i=1;i<Headers.size();i++)
+		{
+			String headerName = Headers.get(i).getText();
+			for(int j=1;j<HeadersValues.size();j++)
+			{
+				if(i==j)
+				{
+					String headersvalues = HeadersValues.get(j).getText();	
+					map.put(headerName,headersvalues );
+				}
+			}
+		} 
+		System.out.println(map);
+		return map;
+		
 	}
 	public void UserRoleOption() 
 	{

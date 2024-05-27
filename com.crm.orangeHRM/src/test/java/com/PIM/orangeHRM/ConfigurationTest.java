@@ -1,6 +1,7 @@
 package com.PIM.orangeHRM;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GenericUtility.BaseClass;
@@ -11,9 +12,10 @@ import repositry.LogiNPage;
 import repositry.OptionalFields;
 import repositry.Sidebar;
 
+@Listeners(GenericUtility.ListnerImplementation.class)
 public class ConfigurationTest  extends BaseClass{
 	@Test(priority=1)
-	public void OptionFieldEnablement()
+	public void OptionFieldEnablement() throws InterruptedException
 	{
 		String expOptionalFields = "Optional Fields";
 		String expcustomFields = "Custom Fields";
@@ -32,7 +34,7 @@ public class ConfigurationTest  extends BaseClass{
 		Assert.assertEquals(actcustomFields, expcustomFields);
 	}
 	@Test(priority=2)
-	public void CustomFieldFieldNameErrorValidation()
+	public void CustomFieldFieldNameErrorValidation() throws InterruptedException
 	{
 		String actFieldNameErrorMsg ="Required";
 		LogiNPage login=new LogiNPage(driver);
@@ -47,7 +49,7 @@ public class ConfigurationTest  extends BaseClass{
 	}
 	
 	@Test(priority=3)
-	public void CustomFieldScreenErrorValidation()
+	public void CustomFieldScreenErrorValidation() throws InterruptedException
 	{
 		String actScreenErrorMsg ="Required";
 		LogiNPage login=new LogiNPage(driver);
@@ -62,7 +64,7 @@ public class ConfigurationTest  extends BaseClass{
 		
 	}
 	@Test(priority=4)
-	public void CustomFieldtypeErrorValidation()
+	public void CustomFieldtypeErrorValidation() throws InterruptedException
 	{
 		String acttypeErrorMsg ="Required";
 		LogiNPage login=new LogiNPage(driver);

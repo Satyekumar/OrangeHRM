@@ -30,10 +30,14 @@ public class LogiNPage {
 	 * LoginToApplication Method will login into the Application
 	 * @param un
 	 * @param pw
+	 * @throws InterruptedException 
 	 */
-	public void LoginToApplication(String un,String pw)
+	public void LoginToApplication(String un,String pw) throws InterruptedException
 	{
+		Thread.sleep(10);
+		username.clear();
 		username.sendKeys(un);
+		password.clear();;
 		password.sendKeys(pw);
 		LoginBtn.click();
 		

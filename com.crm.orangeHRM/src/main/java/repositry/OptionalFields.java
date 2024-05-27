@@ -38,7 +38,7 @@ public class OptionalFields {
 	public void OptionalFieldsSelection(WebDriver driver)
 	{
 		configuration.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+		WebDriverWait wait = new WebDriverWait(driver,10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[text()='Optional Fields']"))).click();
 		nickname.click();
 		saveBtn.click();

@@ -187,7 +187,7 @@ public class PersonalDetailsPage {
 	public void personalDetailsData(WebDriver driver,String licn,String lic,String dob) throws InterruptedException
 	{
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(LicenseNumber));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[contains(text(),'License Number')]/parent::div/following-sibling::div/input")));
 		Thread.sleep(2000);
@@ -209,7 +209,7 @@ public class PersonalDetailsPage {
 	public void CustomFieldsData(WebDriver driver,String tf)
 	{
 		Bloodtype.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='A+']"))).click();
 		testField.sendKeys(tf);
 		saveBtn2.click();

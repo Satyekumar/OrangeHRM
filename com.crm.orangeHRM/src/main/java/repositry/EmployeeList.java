@@ -78,7 +78,7 @@ public class EmployeeList {
 	public void SearchByemployeementStatus(WebDriver driver)
 	{
 		employeementStatus.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+		WebDriverWait wait = new WebDriverWait(driver,10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("Freelance"))).click();
 		
 		Search.click();	
@@ -89,7 +89,7 @@ public class EmployeeList {
 		SupervisorName.sendKeys(sname);
 		try {
 			Thread.sleep(2000);
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+			WebDriverWait wait = new WebDriverWait(driver,10);
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@role='option']/span"))).click();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
